@@ -44,7 +44,7 @@ public class vehicles {
     }
 
     public void printVehicle(){
-        System.out.println("brand:"+getBrand()+"\tModel:"+getModel()+"\tplate:"+getPlate()+"\tproduction year:"+getProductionYear());
+        System.out.print("Brand:"+getBrand()+"\tModel:"+getModel()+"\tplate:"+getPlate()+"\tproduction year:"+getProductionYear());
 
     }
 

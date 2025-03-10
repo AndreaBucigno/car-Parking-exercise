@@ -4,14 +4,17 @@ public class Main{
         Scanner scanner = new Scanner(System.in);
         vehicles vehicles;
         carPark carPark = new carPark();
-        int option;
+        int option,selection;
         while(true){
-            System.out.println("------------------------------------");
+            System.out.println("---------------------------------------------------------");
             System.out.println("Enter the option: \n1.add Vehicle\n2.remove Vehicle\n3.Modify a Vehicle\n4.Print car Park\n5.Exit");
             option=scanner.nextInt();
             scanner.nextLine();
             switch (option){
                 case 1:
+                    System.out.println("Enter the type of Vehicle:\n1.Vehicle\n2.Car\n3.Van\n4.Bus");
+                    selection=scanner.nextInt();
+                    scanner.nextLine();
 
                     System.out.println("Enter the license plate number:");
                     String newPlate = scanner.nextLine();
@@ -22,10 +25,40 @@ public class Main{
                     System.out.println("Enter the production year:");
                     int newYear = scanner.nextInt();
 
-                    //instanza della classe di tipo veicoli
+                    switch (selection) {
 
-                    vehicles = new vehicles(newPlate,newBrand,newModel,newYear);
-                    carPark.addVehicle(vehicles);
+                        //Vehicle
+                        case 1:
+                            vehicles = new vehicles(newPlate, newBrand, newModel, newYear);
+                            carPark.addVehicle(vehicles);
+                            break;
+
+                            //Car
+                        case 2:
+                            System.out.println("Enter the number of door of the car:");
+                            int numberofdoors= scanner.nextInt();
+                            cars cars = new cars(newPlate, newBrand, newModel, newYear,numberofdoors); //polimorfismo della classe vehicle
+                            carPark.addVehicle(cars);
+                            break;
+
+                            //Van
+                        case 3:
+                            System.out.println("Enter the capacity of the van:");
+                            int capacity= scanner.nextInt();
+                            scanner.nextLine();
+                            van van = new van(newPlate, newBrand, newModel, newYear,capacity); //polimorfismo della classe vehicle
+                            carPark.addVehicle(van);
+                            break;
+
+                            //Bus
+                        case 4 :
+                            System.out.println("Enter the place to seat:");
+                            int placeToSeat= scanner.nextInt();
+                            scanner.nextLine();
+                            bus bus = new bus(newPlate, newBrand, newModel, newYear,placeToSeat); //polimorfismo della classe vehicle
+                            carPark.addVehicle(bus);
+                            break;
+                    }
                     break;
 
                 case 2:
@@ -47,6 +80,7 @@ public class Main{
                     break;
 
                 case 4:
+                    System.out.println("---------------------------------------------------------");
                     carPark.printList();
                     break;
 
