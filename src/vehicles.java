@@ -3,12 +3,22 @@ public class vehicles {
     private int productionYear;
     private String model;
     private String  brand;
+    int spaceOccupied;
 
-    public vehicles(String plate, String brand, String model, int productionYear) {
+    public vehicles(String plate, String brand, String model, int productionYear,int spaceOccupied) {
         this.plate = plate;
         this.brand = brand;
         this.model = model;
         this.productionYear = productionYear;
+        this.spaceOccupied=spaceOccupied;
+    }
+
+    public int getSpaceOccupied() {
+        return spaceOccupied;
+    }
+
+    public void setSpaceOccupied(int spaceOccupied) {
+        this.spaceOccupied = spaceOccupied;
     }
 
     public String getPlate(){
@@ -43,9 +53,11 @@ public class vehicles {
         this.brand=brand;
     }
 
-    public void printVehicle(){
-        System.out.print("Brand:"+getBrand()+"\tModel:"+getModel()+"\tplate:"+getPlate()+"\tproduction year:"+getProductionYear());
-
+    public void printVehicle() {
+        System.out.println("Brand: " + getBrand() +
+                ", Model: " + getModel() +
+                ", Plate: " + getPlate() +
+                ", Production Year: " + getProductionYear());
     }
 
 

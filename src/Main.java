@@ -3,8 +3,23 @@ public class Main{
     public static void main(String[] args){
         Scanner scanner = new Scanner(System.in);
         vehicles vehicles;
-        carPark carPark = new carPark();
+        int spaceOfDeposit;
+        boolean condition;
+
+        do {
+            System.out.println("Enter how many slot there are in the deposit:");
+            spaceOfDeposit = scanner.nextInt();
+            scanner.nextLine();
+            condition=spaceOfDeposit<3;
+
+            if (condition) {
+                System.out.println("Error! minimum 3 slots.");
+            }
+        }while(condition);
+
+        carPark carPark = new carPark(spaceOfDeposit);
         int option,selection;
+
         while(true){
             System.out.println("---------------------------------------------------------");
             System.out.println("Enter the option: \n1.add Vehicle\n2.remove Vehicle\n3.Modify a Vehicle\n4.Print car Park\n5.Exit");
@@ -29,7 +44,10 @@ public class Main{
 
                         //Vehicle
                         case 1:
-                            vehicles = new vehicles(newPlate, newBrand, newModel, newYear);
+                            System.out.println("Enter how many slot it occupied:");
+                            int space = scanner.nextInt();
+                            scanner.nextLine();
+                            vehicles = new vehicles(newPlate, newBrand, newModel, newYear,space);
                             carPark.addVehicle(vehicles);
                             break;
 

@@ -5,14 +5,20 @@ public class carPark {
 
     private ArrayList<vehicles> vehiclesarrayList;
     private Scanner scanner = new Scanner(System.in);
-
-    public carPark(){
+    private int maxCapacity;
+    private int currentCapacity;
+    public carPark(int slot){
         vehiclesarrayList=new ArrayList<>();
-
+        maxCapacity=slot;
     }
 
     public void addVehicle(vehicles vehicles){
-        vehiclesarrayList.add(vehicles);
+        if(currentCapacity+vehicles.getSpaceOccupied()<= maxCapacity) {
+            vehiclesarrayList.add(vehicles);
+            currentCapacity += vehicles.getSpaceOccupied();
+        }else{
+            System.out.println("Error park is full.");
+        }
 
     }
 
@@ -20,7 +26,9 @@ public class carPark {
         if(vehiclesarrayList.isEmpty()){
             System.out.println("Car park is empty.");
         }else {
+            currentCapacity -= vehiclesarrayList.get(position-1).getSpaceOccupied();
             vehiclesarrayList.remove(position - 1);
+
         }
     }
 
@@ -30,9 +38,13 @@ public class carPark {
         if (vehiclesarrayList.isEmpty()) {
             System.out.println("Car park is empty.");
         } else {
-            for (vehicles vehicles : vehiclesarrayList) {
-                vehicles.printVehicle();
+            System.out.println("Vehicles in the car park:");
+            System.out.println("==============================");
+            for (vehicles vehicle : vehiclesarrayList) {
+                vehicle.printVehicle();
+                System.out.println("------------------------------");
             }
+            System.out.println("==============================");
         }
     }
 

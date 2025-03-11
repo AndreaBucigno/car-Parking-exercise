@@ -3,7 +3,7 @@ public class cars extends vehicles{
     private int numberOfDoors;
 
     public cars(String plate, String brand, String model, int productionYear, int numberOfDoors){
-        super(plate, brand, model, productionYear);
+        super(plate, brand, model, productionYear,1);
         this.numberOfDoors=numberOfDoors;
     }
 
@@ -16,8 +16,8 @@ public class cars extends vehicles{
     }
 
     @Override
-    public void printVehicle(){
+    public void printVehicle() {
         super.printVehicle();
-        System.out.print("\tnumber of doors: "+numberOfDoors+"\n");
+        System.out.println("Number of doors: " + numberOfDoors);
     }
 }
