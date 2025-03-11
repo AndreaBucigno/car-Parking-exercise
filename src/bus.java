@@ -1,3 +1,4 @@
+//
 public class bus extends vehicles{
     private int placesToSeat;
 

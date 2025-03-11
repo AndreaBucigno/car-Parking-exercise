@@ -1,3 +1,4 @@
+//
 public class van extends vehicles{
 
     private float capacity;
